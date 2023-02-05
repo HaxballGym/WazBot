@@ -10,8 +10,8 @@ google-auth==2.16.0
 google-auth-oauthlib==0.4.6
 grpcio==1.51.1
 gym==0.21.0
-haxballgym @ git+https://github.com/HaxballGym/HaxballGym@130f3e947cf9c8af59732c003e7be19c5f977c2c
-haxballgym-tools @ git+https://github.com/HaxballGym/HaxballGym-tools@c4c727bb241b465224b916a3602b8b63f296aae9
+haxballgym @ git+https://github.com/HaxballGym/HaxballGym@3d76999518dde7b78c19141f469cd4a190bab26b
+haxballgym-tools @ git+https://github.com/HaxballGym/HaxballGym-tools@688eb62ee1ad85e46a7bf88ddb3cb22da4854aeb
 idna==3.4
 importlib-metadata==4.13.0
 kiwisolver==1.4.4
@@ -51,6 +51,6 @@ torch-tb-profiler==0.4.1
 typing_extensions==4.4.0
 urllib3==1.26.14
 ursina==5.0.0
-ursinaxball @ git+https://github.com/HaxballGym/Ursinaxball@bc560bfee1316b2b2defc6a9cf5305ae16a58a0b
+ursinaxball @ git+https://github.com/HaxballGym/Ursinaxball@9d3cbdf78c60465ebf316248321a57fc30d3f0ee
 Werkzeug==2.2.2
-zipp==3.12.0
+zipp==3.12.1
