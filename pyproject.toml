@@ -1,20 +1,14 @@
 [tool.poetry]
 name = "wazbot"
-version = "0.1.0"
+version = "0.2.0"
 description = ""
 authors = ["Wazarr <jeje_04@live.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
 python = ">=3.10,<3.12"
-stable-baselines3 = "^1.6.2"
+haxballgym-tools = "1.0.6"
 torch = { url = "https://download.pytorch.org/whl/cu117/torch-1.13.1%2Bcu117-cp310-cp310-win_amd64.whl" }
-haxballgym = { git = "https://github.com/HaxballGym/HaxballGym" }
-haxballgym-tools = { git = "https://github.com/HaxballGym/HaxballGym-tools" }
-ursinaxball = { git = "https://github.com/HaxballGym/Ursinaxball" }
-tensorboard = "^2.11.0"
-torch-tb-profiler = "^0.4.1"
-panda3d = "1.10.13"
 
 
 [build-system]
