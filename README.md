@@ -8,7 +8,7 @@ Before installing dependencies with pip, you must first use the appropriate vers
 
 The list of wheels is available [here](https://download.pytorch.org/whl/torch/)
 
-### `pip`
+### pip
 
 `pip install -r requirement.txt`
 
