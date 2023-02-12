@@ -8,10 +8,10 @@ cycler==0.11.0
 fonttools==4.38.0
 google-auth==2.16.0
 google-auth-oauthlib==0.4.6
-grpcio==1.52.0
+grpcio==1.51.1
 gym==0.21.0
-haxballgym==0.5.5
-haxballgym-tools==1.0.6
+haxballgym==0.5.6
+haxballgym-tools==1.1.0
 idna==3.4
 importlib-metadata==4.13.0
 kiwisolver==1.4.4
@@ -29,7 +29,7 @@ panda3d-gltf==0.13
 panda3d-simplepbr==0.10
 pandas==1.5.3
 Pillow==9.4.0
-protobuf==3.20.3
+protobuf==4.21.12
 psutil==5.9.4
 pyasn1==0.4.8
 pyasn1-modules==0.2.8
@@ -44,8 +44,8 @@ scipy==1.10.0
 screeninfo==0.8.1
 six==1.16.0
 stable-baselines3==1.7.0
-tensorboard==2.11.2
-tensorboard-data-server==0.6.1
+tensorboard==2.12.0
+tensorboard-data-server==0.7.0
 tensorboard-plugin-wit==1.8.1
 torch @ https://download.pytorch.org/whl/cu117/torch-1.13.1%2Bcu117-cp310-cp310-win_amd64.whl#sha256:978239684c6ec455ad2157ff33d44fdb9dd8d3a93b9d2f4ac7aa57691e990136
 typing_extensions==4.4.0
@@ -53,4 +53,4 @@ urllib3==1.26.14
 ursina==5.0.0
 ursinaxball==0.2.3
 Werkzeug==2.2.2
-zipp==3.12.1
+zipp==3.13.0
