@@ -108,7 +108,7 @@ model = PPO.load(
 vec_env = model.get_env()
 
 while True:
-    done = [False]
+    done = np.array([False])
     steps = 0
     actions = [1, 1, 0]
     obs = vec_env.reset()
