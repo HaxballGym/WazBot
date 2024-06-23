@@ -31,11 +31,11 @@ game.add_players(players)
 
 @dataclass
 class InputPlayer:
-    left: list[str]
-    right: list[str]
-    up: list[str]
-    down: list[str]
-    shoot: list[str]
+    left: list[str | Keys]
+    right: list[str | Keys]
+    up: list[str | Keys]
+    down: list[str | Keys]
+    shoot: list[str | Keys]
 
 
 input_player = InputPlayer(

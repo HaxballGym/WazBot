@@ -14,7 +14,6 @@ from stable_baselines3.common.vec_env import VecCheckNan, VecMonitor, VecNormali
 from ursina import Keys, held_keys
 from ursinaxball import Game
 from ursinaxball import common_values as cv
-from ursinaxball.modules import ChaseBot
 
 frame_skip = 10
 half_life_seconds = 5
@@ -22,11 +21,11 @@ half_life_seconds = 5
 
 @dataclass
 class InputPlayer:
-    left: list[str]
-    right: list[str]
-    up: list[str]
-    down: list[str]
-    shoot: list[str]
+    left: list[str | Keys]
+    right: list[str | Keys]
+    up: list[str | Keys]
+    down: list[str | Keys]
+    shoot: list[str | Keys]
 
 
 input_player_1 = InputPlayer(
@@ -76,12 +75,11 @@ def create_gym_env_play():
     gym_env = make(
         game=game,
         reward_fn=misc_rewards.ConstantReward(),
-        terminal_conditions=common_conditions.TimeoutCondition(1 * 60 * 60),
+        terminal_conditions=[common_conditions.GoalScoredCondition()],
         obs_builder=DefaultObs(),
         action_parser=DefaultAction(),
         team_size=1,
         tick_skip=0,
-        bots=[ChaseBot(0)],
     )
     return gym_env
 
@@ -108,13 +106,14 @@ model = PPO.load(
 vec_env = model.get_env()
 
 while True:
-    done = np.array([False])
+    done = np.array([False, False])
     steps = 0
-    actions = [1, 1, 0]
+    actions = [[1, 1, 0], [1, 1, 0]]
     obs = vec_env.reset()
     while not done.any():
+        actions[0] = action_handle(actions[0], input_player_1)
         if steps % (frame_skip + 1) == 0:
             action_bot, _ = model.predict(obs, deterministic=True)
-            actions = action_bot
+            actions[1] = action_bot[1]
         obs, reward, done, info = vec_env.step(actions)
         steps += 1

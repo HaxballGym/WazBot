@@ -39,7 +39,7 @@ if __name__ == "__main__":
                 )
             ),
             terminal_conditions=(
-                common_conditions.TimeoutCondition(1 * 60 * 60 / frame_skip),
+                common_conditions.TimeoutCondition(int(1 * 60 * 60 / frame_skip)),
                 common_conditions.GoalScoredCondition(),
             ),
             obs_builder=DefaultObs(),
@@ -51,7 +51,10 @@ if __name__ == "__main__":
 
     # Set the first array argument as True to visualize progress.
     # Warning: performance are greatly impacted. I recommend to train without a GUI
-    gym_env = [create_gym_env(False)] + [create_gym_env(False) for _ in range(7)]
+    NB_GAMES = 8
+    gym_env = [create_gym_env(False)] + [
+        create_gym_env(False) for _ in range(NB_GAMES - 1)
+    ]
 
     fps = 60 / frame_skip
     gamma = np.exp(np.log(0.5) / (fps * half_life_seconds))
@@ -63,7 +66,7 @@ if __name__ == "__main__":
 
     # Save a checkpoint every 100k steps
     checkpoint_callback = CheckpointCallback(
-        save_freq=100_000 / env.num_envs,
+        save_freq=int(100_000 / env.num_envs),
         save_path="logs/",
         name_prefix="multi",
     )

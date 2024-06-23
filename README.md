@@ -4,29 +4,13 @@ This repository is made to provide you with a solid start in HaxballGym.
 
 ## Installation
 
-Before installing dependencies with pip, you must first use the appropriate version of pytorch for your system.
-
-The list of wheels is available [here](https://download.pytorch.org/whl/torch/)
-
-### pip
-
-`pip install -r requirement.txt`
-
-### Poetry
-
-There is a bug with the version 0.21.0 of gym that makes the installation on Poetry unsmooth. With additional commands, it is possible to still complete the installation.
-
-```bash
-poetry install # install everything, except gym who should make an error
-poetry run pip install gym==0.21.0
-poetry install
-```
+`poetry install`
 
 ## Files
 
 ### main.py
 
-This is the main file for training. With the reward function, you are able to train a pretty capable bot.
+This is the main file for training. You will be able to train a pretty capable bot, with the default values in place.
 
 ### reward_testing.py
 
