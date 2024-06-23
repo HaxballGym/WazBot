@@ -53,10 +53,8 @@ def create_gym_env(render: bool):
 
 
 def create_env(render: bool):
-    # Set the first array argument as True to visualize progress.
-    # Warning: performance are greatly impacted. I recommend to train without a GUI
     NB_GAMES = 8
-    gym_env = [create_gym_env(False)] + [
+    gym_env = [create_gym_env(render)] + [
         create_gym_env(False) for _ in range(NB_GAMES - 1)
     ]
 
