@@ -20,6 +20,8 @@ from ursinaxball import common_values as cv
 FRAME_SKIP = 10
 HALF_LIFE_SECONDS = 5
 NB_GAMES = 8
+TEAM_SIZE = 1
+PREFIX_MODEL = "multi_2"
 
 
 def create_gym_env(render: bool):
@@ -46,14 +48,13 @@ def create_gym_env(render: bool):
         ),
         obs_builder=DefaultObs(),
         action_parser=DefaultAction(),
-        team_size=1,
+        team_size=TEAM_SIZE,
         tick_skip=FRAME_SKIP,
     )
     return gym_env._match
 
 
 def create_env(render: bool):
-    NB_GAMES = 8
     gym_env = [create_gym_env(render)] + [
         create_gym_env(False) for _ in range(NB_GAMES - 1)
     ]
@@ -108,7 +109,7 @@ def model_continue(path_model: Path):
     )
     env.reset()  # Important when loading models, SB3 does not do this for you
 
-    return model, checkpoint_callback
+    return model
 
 
 def main():
@@ -119,7 +120,7 @@ def main():
     checkpoint_callback = CheckpointCallback(
         save_freq=int(100_000 / NB_GAMES),
         save_path="logs/",
-        name_prefix="multi",
+        name_prefix=PREFIX_MODEL,
     )
 
     model.learn(100_000_000, checkpoint_callback)
