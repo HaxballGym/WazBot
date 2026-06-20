@@ -1,16 +1,17 @@
-[tool.poetry]
+[project]
 name = "wazbot"
-version = "0.2.1"
-description = ""
-authors = ["Wazarr <jeje_04@live.com>"]
+version = "1.0.0"
+description = "A solid starting bot for HaxballGym."
 readme = "README.md"
-package-mode = false
+requires-python = ">=3.12"
+authors = [{ name = "Wazarr" }]
+dependencies = [
+    "haxballgym>=1.0.1",   # the env + the native haxball_core engine (pulled transitively)
+    "torch>=2.2",          # the policy network (loads the shipped model)
+]
 
-[tool.poetry.dependencies]
-python = ">=3.10,<3.11"
-haxballgym-tools = "1.1.1"
+[tool.uv]
+package = false            # a folder of scripts, not an installable distribution
 
-
-[build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+[tool.ruff]
+line-length = 110

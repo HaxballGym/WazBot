@@ -168,3 +168,13 @@ cython_debug/
 # HaxballGym
 *.zip
 events.*
+
+# --- WazBot ---
+# Ship only the chosen model (models/model.pt + models/meta.json). Ignore training scratch:
+runs/
+checkpoints/
+*.hbr2
+models/ckpts/
+models/replays/
+models/model_final.pt
+models/meta_final.json
